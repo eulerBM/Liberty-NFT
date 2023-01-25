@@ -60,11 +60,11 @@ https://templatemo.com/tm-577-liberty-market
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="index.html">Principal</a></li>
+                        <li><a href="{% url 'home' %}">Principal</a></li>
                         <li><a class="active">Explorar</a></li>  <!-- ***** Estou no Explore ***** -->
-                        <li><a href="details.html">Detalhes do item</a></li>
-                        <li><a href="author.html">Autor</a></li>
-                        <li><a href="create.html">Crie o seu</a></li>
+                        <li><a href="{% url 'details' %}">Detalhes do item</a></li>
+                        <li><a href="{% url 'author' %}">Autor</a></li>
+                        <li><a href="{% url 'create' %}">Crie o seu</a></li>
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
