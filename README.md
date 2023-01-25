@@ -7,15 +7,15 @@
 
 <h3>Crie um virtualenv com Python</h3><br>
 
-    <h4>Windows 🗔</h4><br>
-    <p> python -m venv venv </p><br>
-    <p>Agora ative com o seguinte comando</p><br>
-    <p> venv/Scripts/Activate</p><br><br>
+    Windows 🗔
+    python -m venv venv
+    Agora ative com o seguinte comand
+    venv/Scripts/Activat
 
-    <h4>Linux 🐧 ou MacOS 🍎</h4><br>
-    <p> python3 -m venv venv </p><br>
-    <p>Agora ative com o seguinte comando</p><br>
-    <p> source env/bin/activate</p><br><br>
+    Linux 🐧 ou MacOS 🍎
+    python3 -m venv venv 
+    Agora ative com o seguinte comando
+    source env/bin/activate
 
 <h3>Instale as dependências.</h3><br>
     <h4>pip install -r requirements.txt</h4><br>
