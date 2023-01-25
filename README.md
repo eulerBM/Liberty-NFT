@@ -2,13 +2,12 @@
 
 <h2> Como rodar esse projeto ? </h2><br>
 
+<h2>Clone esse repositório.</h2><br>
+
 <h3> HTTPS: https://github.com/eulerBM/Liberty-NFT.git</h3><br>
 <h2>Ou</h2><br>
-<h3> SSH: git@github.com:eulerBM/Liberty-NFT.git</h3>
-
-<h3> Clone esse repositório.</h3><br>
-    <h4>git clone</h4><br>
-
+<h3> SSH: git@github.com:eulerBM/Liberty-NFT.git</h3><br><br><br>
+  
 <h3>Crie um virtualenv com Python</h3><br>
 
     Windows 🗔
