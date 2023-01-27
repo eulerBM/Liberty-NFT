@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="pt-BR">
 
   <head>
 
@@ -8,18 +9,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/6699/6699366.png" type="image/x-icon">
 
-    <title>Liberty Template - Create NFT Page</title>
+    <title>Liberty Template - Criar</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
 
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-liberty-market.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="{% static 'css/fontawesome.css'%}">
+    <link rel="stylesheet" href="{% static 'css/templatemo-liberty-market.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.css'%}">
+    <link rel="stylesheet" href="{% static 'css/animate.css'%}">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 <!--
 
@@ -53,16 +55,16 @@ https://templatemo.com/tm-577-liberty-market
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="index.html" class="logo">
-                        <img src="assets/images/logo.png" alt="">
+                        <img src="{% static 'images/logo.png'%}" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="{% url 'home' %}">Home</a></li>
-                        <li><a href="{% url 'explore' %}">Explore</a></li>
-                        <li><a href="{% url 'details' %}">Item Details</a></li>
-                        <li><a href="{% url 'author' %}">Author</a></li>
-                        <li><a class="active">Create Yours</a></li> <!-- ***** Estou no Create ***** -->
+                        <li><a href="{% url 'home' %}">Principal</a></li>
+                        <li><a href="{% url 'explore' %}">Explorar</a></li>
+                        <li><a href="{% url 'details' %}">Detalhes do item</a></li>
+                        <li><a href="{% url 'author' %}">Autor</a></li>
+                        <li><a class="active">Crie o seu</a></li> <!-- ***** Estou no Create ***** -->
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -79,15 +81,15 @@ https://templatemo.com/tm-577-liberty-market
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h6>Liberty NFT Market</h6>
-          <h2>Create Your NFT Now.</h2>
-          <span>Home > <a href="#">Create Yours</a></span>
+          <h6>Liberty NFT </h6>
+          <h2>Crie seu NFT agora.</h2>
+          <span>Home > <a >Create Yours</a></span>
           <div class="buttons">
             <div class="main-button">
-              <a href="explore.html">Explore Our Items</a>
+              <a href="explore.html">Explore nossos itens</a>
             </div>
             <div class="border-button">
-              <a href="create.html">Create Your NFT</a>
+              <a href="create.html">Crie sua NFT</a>
             </div>
           </div>
         </div>
@@ -101,7 +103,7 @@ https://templatemo.com/tm-577-liberty-market
         <div class="col-lg-12">
           <div class="section-heading">
             <div class="line-dec"></div>
-            <h2>Apply For <em>Your Item</em> Here.</h2>
+            <h2>Cadastre  <em>Seu item</em> Aqui.</h2>
           </div>
         </div>
         <div class="col-lg-12">
@@ -109,43 +111,43 @@ https://templatemo.com/tm-577-liberty-market
             <div class="row">
               <div class="col-lg-4">
                 <fieldset>
-                  <label for="title">Item Title</label>
-                  <input type="title" name="title" id="title" placeholder="Ex. Lyon King" autocomplete="on" required>
+                  <label for="title">Título do item</label>
+                  <input type="title" name="title" id="title" placeholder="Ex. Leão azul" autocomplete="on" required>
                 </fieldset>
               </div>
               <div class="col-lg-4">
                 <fieldset>
-                  <label for="description">Description For Item</label>
-                  <input type="description" name="description" id="description" placeholder="Give us your idea" autocomplete="on" required>
+                  <label for="description">Descrição do item</label>
+                  <input type="description" name="description" id="description" placeholder="Dê-nos a sua ideia" autocomplete="on" required>
                 </fieldset>
               </div>
               <div class="col-lg-4">
                 <fieldset>
-                  <label for="username">Your Username</label>
-                  <input type="username" name="username" id="username" placeholder="Ex. @alansmithee" autocomplete="on" required>
+                  <label for="username">Seu nome de usuário</label>
+                  <input type="username" name="username" id="username" placeholder="Ex. @pedro_fernandes" autocomplete="on" required>
                 </fieldset>
               </div>
               <div class="col-lg-6">
                 <fieldset>
-                  <label for="price">Price Of Item</label>
-                  <input type="price" name="price" id="price" placeholder="Price depends on quality. Ex. 0.06 ETH" autocomplete="on" required>
+                  <label for="price">Preço do item</label>
+                  <input type="price" name="price" id="price" placeholder="O preço depende da qualidade. Ex. 0.06 ETH" autocomplete="on" required>
                 </fieldset>
               </div>
               <div class="col-lg-6">
                 <fieldset>
                   <label for="royalities">Royalties</label>
-                  <input type="royalities" name="royalities" id="royalities" placeholder="Common royalties 1-25%" autocomplete="on" required>
+                  <input type="royalities" name="royalities" id="royalities" placeholder="Royalties comuns 1-25%" autocomplete="on" required>
                 </fieldset>
               </div>
               <div class="col-lg-4">
                 <fieldset>
-                  <label for="file">Your File</label>
+                  <label for="file">Seu arquivo</label>
                   <input type="file" id="file" name="myfiles[]" multiple />
                 </fieldset>
               </div>
               <div class="col-lg-8">
                 <fieldset>
-                  <button type="submit" id="form-submit" class="orange-button">Submit Your Applying</button>
+                  <button type="submit" id="form-submit" class="orange-button">Envie sua inscrição</button>
                 </fieldset>
               </div>
             </div>
@@ -154,35 +156,35 @@ https://templatemo.com/tm-577-liberty-market
         <div class="col-lg-12">
           <div class="section-heading">
             <div class="line-dec"></div>
-            <h2>This Is <em>Your Item</em> Preview.</h2>
+            <h2>Seu <em>item</em> será mostrado assim.</h2>
           </div>
         </div>
         <div class="col-lg-7">
           <div class="left-image">
-            <img src="assets/images/create-yours.jpg" alt="" style="border-radius: 20px;">
+            <img src="{% static 'images/create-yours.jpg'%}" alt="" style="border-radius: 20px;">
           </div>
         </div>
         <div class="col-lg-5 align-self-center">
           <h4>Dolores Haze Westworld Eye</h4>
           <span class="author">
-            <img src="assets/images/author-02.jpg" alt="" style="max-width: 50px; border-radius: 50%;">
+            <img src="{% static 'images/author-02.jpg'%}" alt="" style="max-width: 50px; border-radius: 50%;">
             <h6>Kataleya Smithee<br><a href="#">@kataleey</a></h6>
           </span>
           <p>Lorem ipsum dolor sit amet, consectetu dipiscingei elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           <div class="row">
             <div class="col-3">
               <span class="bid">
-                Current Bid<br><strong>0.06 ETH</strong><br><em>($8055,35)</em>
+                Oferta atual<br><strong>0.06 ETH</strong><br><em>($8055,35)</em>
               </span>
             </div>
             <div class="col-4">
               <span class="owner">
-                Owner<br><strong>Alan Smithee</strong><br><em>(@asmithee)</em>
+                Proprietário<br><strong>Alan Smithee</strong><br><em>(@asmithee)</em>
               </span>
             </div>
             <div class="col-5">
               <span class="ends">
-                Ends In<br><strong>3D 05H 20M 58S</strong><br><em>(January 22nd, 2021)</em>
+                Termina em<br><strong>3D 05H 20M 58S</strong><br><em>(January 22nd, 2021)</em>
               </span>
             </div>
           </div>
@@ -195,9 +197,8 @@ https://templatemo.com/tm-577-liberty-market
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <p>Copyright © 2022 <a href="#">Liberty</a> NFT Marketplace Co., Ltd. All rights reserved.
+          <p>Copyright © 2022 <a href="#">Liberty</a> NFT Co., Ltd. Todos os direitos reservados.
           &nbsp;&nbsp;
-          Designed by <a title="HTML CSS Templates" rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
         </div>
       </div>
     </div>
@@ -205,14 +206,14 @@ https://templatemo.com/tm-577-liberty-market
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="{% static 'jquery/jquery.min.js'%}"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.min.js'%}"></script>
 
-  <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
+  <script src="{% static 'js/isotope.min.js'%}"></script>
+  <script src="{% static 'js/owl-carousel.js'%}"></script>
 
-  <script src="assets/js/tabs.js"></script>
-  <script src="assets/js/popup.js"></script>
-  <script src="assets/js/custom.js"></script>
+  <script src="{% static 'js/tabs.js'%}"></script>
+  <script src="{% static 'js/popup.js'%}"></script>
+  <script src="{% static 'js/custom.js'%}"></script>
   </body>
 </html>
