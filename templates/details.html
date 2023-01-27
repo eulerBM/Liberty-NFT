@@ -14,7 +14,7 @@
     <title>Liberty detalhe</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href={% static 'bootstrap/css/bootstrap.min.css'%} rel="stylesheet">
 
 
     <!-- Additional CSS Files -->
@@ -55,7 +55,7 @@ https://templatemo.com/tm-577-liberty-market
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="index.html" class="logo">
-                        <img src="assets/images/logo.png" alt="">
+                        <img src={% static 'images/logo.png'%} alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -108,7 +108,7 @@ https://templatemo.com/tm-577-liberty-market
         </div>
         <div class="col-lg-7">
           <div class="left-image">
-            <img src="{% static 'images/item-details-01.jpg'%}" alt="" style="border-radius: 20px;">
+            <img src="{% static 'images/item-details-01.jpg'%}" alt="" style="border-radius: 10px;" >
           </div>
         </div>
         <div class="col-lg-5 align-self-center">

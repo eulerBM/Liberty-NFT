@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static%}
+<html lang="pt-BR">
 
   <head>
 
@@ -8,18 +9,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/6699/6699366.png" type="image/x-icon">
 
-    <title>Liberty NFT - Author Detail Page</title>
+    <title>Liberty NFT - Autor </title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/bootstrap.min.css'%}"  rel="stylesheet">
 
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-liberty-market.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="{% static 'css/fontawesome.css'%}">
+    <link rel="stylesheet" href="{% static 'css/templatemo-liberty-market.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.css'%}">
+    <link rel="stylesheet" href="{% static 'css/animate.css'%}">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 <!--
 
@@ -53,16 +55,16 @@ https://templatemo.com/tm-577-liberty-market
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="index.html" class="logo">
-                        <img src="assets/images/logo.png" alt="">
+                        <img src="{% static 'images/logo.png'%}" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="{% url 'home' %}">Home</a></li>
-                        <li><a href="{% url 'explore' %}">Explore</a></li>
-                        <li><a href="{% url 'details' %}">Item Details</a></li>
-                        <li><a class="active">Author</a></li> <!-- ***** Estou no Author ***** -->
-                        <li><a href="{% url 'create' %}">Create Yours</a></li>
+                        <li><a href="{% url 'home' %}">Principal</a></li>
+                        <li><a href="{% url 'explore' %}">Explorar</a></li>
+                        <li><a href="{% url 'details' %}">Detalhes do item</a></li>
+                        <li><a class="active">Autor</a></li> <!-- ***** Estou no Author ***** -->
+                        <li><a href="{% url 'create' %}">Crie o seu</a></li>
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -79,15 +81,15 @@ https://templatemo.com/tm-577-liberty-market
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h6>Author Details</h6>
-          <h2>View Details For Author</h2>
-          <span>Home > <a href="#">Author</a></span>
+          <h6>Detalhes do autor</h6>
+          <h2>Exibir detalhes do autor</h2>
+          <span>Home > <a >Author</a></span>
           <div class="buttons">
             <div class="main-button">
-              <a href="explore.html">Explore Our Items</a>
+              <a href="explore.html">Explore nossos itens</a>
             </div>
             <div class="border-button">
-              <a href="create.html">Create Your NFT</a>
+              <a href="create.html">Crie sua NFT</a>
             </div>
           </div>
         </div>
@@ -100,7 +102,7 @@ https://templatemo.com/tm-577-liberty-market
       <div class="row">
         <div class="col-lg-6">
           <div class="author">
-            <img src="assets/images/single-author.jpg" alt="" style="border-radius: 50%; max-width: 170px;">
+            <img src="{% static 'images/single-author.jpg'%}" alt="" style="border-radius: 50%; max-width: 170px;">
             <h4>Melanie Smith <br> <a href="#">@melanie32</a></h4>
           </div>
         </div>
@@ -128,11 +130,11 @@ https://templatemo.com/tm-577-liberty-market
             </div>
             <div class="row">
               <div class="col-5">
-                <h5>559 Followers</h5>
+                <h5>559 Seguidores</h5>
               </div>
               <div class="col-7">
                 <div class="main-button">
-                  <a href="#">Follow @melanie32</a>
+                  <a href="#">Seguir @melanie32</a>
                 </div>
               </div>
             </div>
@@ -141,7 +143,7 @@ https://templatemo.com/tm-577-liberty-market
         <div class="col-lg-12">
           <div class="section-heading">
             <div class="line-dec"></div>
-            <h2>Melanie Smith’s <em>Items</em>.</h2>
+            <h2>Melanie Smith’s <em>Itens</em>.</h2>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">
@@ -149,9 +151,9 @@ https://templatemo.com/tm-577-liberty-market
             <div class="row">
               <div class="col-lg-12">
                 <span class="author">
-                  <img src="assets/images/author.jpg" alt="" style="max-width: 50px; border-radius: 50%;">
+                  <img src="{% static 'images/author.jpg'%}" alt="" style="max-width: 50px; border-radius: 50%;">
                 </span>
-                <img src="assets/images/discover-03.jpg" alt="" style="border-radius: 20px;">
+                <img src="{% static 'images/discover-03.jpg'%}" alt="" style="border-radius: 20px;">
                 <h4>Mutant Ape Bored</h4>
               </div>
               <div class="col-lg-12">
@@ -167,7 +169,7 @@ https://templatemo.com/tm-577-liberty-market
               </div>
               <div class="col-lg-12">
                 <div class="main-button">
-                  <a href="details.html">View Details</a>
+                  <a href="details.html">Ver detalhes</a>
                 </div>
               </div>
             </div>
@@ -178,9 +180,9 @@ https://templatemo.com/tm-577-liberty-market
             <div class="row">
               <div class="col-lg-12">
                 <span class="author">
-                  <img src="assets/images/author-02.jpg" alt="" style="max-width: 50px; border-radius: 50%;">
+                  <img src="{% static 'images/author-02.jpg'%}" alt="" style="max-width: 50px; border-radius: 50%;">
                 </span>
-                <img src="assets/images/discover-06.jpg" alt="" style="border-radius: 20px;">
+                <img src="{% static 'images/discover-06.jpg'%}" alt="" style="border-radius: 20px;">
                 <h4>Mutant Ape Bored</h4>
               </div>
               <div class="col-lg-12">
@@ -196,7 +198,7 @@ https://templatemo.com/tm-577-liberty-market
               </div>
               <div class="col-lg-12">
                 <div class="main-button">
-                  <a href="details.html">View Details</a>
+                  <a href="details.html">Ver detalhes</a>
                 </div>
               </div>
             </div>
@@ -207,9 +209,9 @@ https://templatemo.com/tm-577-liberty-market
             <div class="row">
               <div class="col-lg-12">
                 <span class="author">
-                  <img src="assets/images/author.jpg" alt="" style="max-width: 50px; border-radius: 50%;">
+                  <img src="{% static 'images/author.jpg'%}" alt="" style="max-width: 50px; border-radius: 50%;">
                 </span>
-                <img src="assets/images/discover-05.jpg" alt="" style="border-radius: 20px;">
+                <img src="{% static 'images/discover-05.jpg'%}" alt="" style="border-radius: 20px;">
                 <h4>Mutant Ape Bored</h4>
               </div>
               <div class="col-lg-12">
@@ -225,7 +227,7 @@ https://templatemo.com/tm-577-liberty-market
               </div>
               <div class="col-lg-12">
                 <div class="main-button">
-                  <a href="details.html">View Details</a>
+                  <a href="details.html">Ver detalhes</a>
                 </div>
               </div>
             </div>
@@ -236,9 +238,9 @@ https://templatemo.com/tm-577-liberty-market
             <div class="row">
               <div class="col-lg-12">
                 <span class="author">
-                  <img src="assets/images/author-03.jpg" alt="" style="max-width: 50px; border-radius: 50%;">
+                  <img src="{% static 'images/author-03.jpg'%}" alt="" style="max-width: 50px; border-radius: 50%;">
                 </span>
-                <img src="assets/images/discover-04.jpg" alt="" style="border-radius: 20px;">
+                <img src="{% static 'images/discover-04.jpg'%}" alt="" style="border-radius: 20px;">
                 <h4>Mutant Ape Bored</h4>
               </div>
               <div class="col-lg-12">
@@ -254,7 +256,7 @@ https://templatemo.com/tm-577-liberty-market
               </div>
               <div class="col-lg-12">
                 <div class="main-button">
-                  <a href="details.html">View Details</a>
+                  <a href="details.html">Ver detalhes</a>
                 </div>
               </div>
             </div>
@@ -270,12 +272,12 @@ https://templatemo.com/tm-577-liberty-market
         <div class="col-lg-8">
           <div class="section-heading">
             <div class="line-dec"></div>
-            <h2>Create Your NFT & Put It On The Market.</h2>
+            <h2>Crie seu NFT e coloque-o no mercado.</h2>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="main-button">
-            <a href="create.html">Create Your NFT Now</a>
+            <a href="create.html">Crie seu NFT agora</a>
           </div>
         </div>
         <div class="col-lg-4">
@@ -284,9 +286,9 @@ https://templatemo.com/tm-577-liberty-market
               <h6>1</h6>
             </div>
             <div class="icon">
-              <img src="assets/images/icon-02.png" alt="">
+              <img src="{% static 'images/icon-02.png'%}" alt="">
             </div>
-            <h4>Set Up Your Wallet</h4>
+            <h4>Configurar sua carteira</h4>
             <p>Lorem ipsum dolor sit amet, consectetu dipiscingei elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
         </div>
@@ -296,18 +298,18 @@ https://templatemo.com/tm-577-liberty-market
               <h6>2</h6>
             </div>
             <div class="icon">
-              <img src="assets/images/icon-04.png" alt="">
+              <img src="{% static 'images/icon-04.png'%}" alt="">
             </div>
-            <h4>Add Your Digital NFT</h4>
+            <h4>Adicione sua NFT digital</h4>
             <p>Lorem ipsum dolor sit amet, consectetu dipiscingei elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="item">
             <div class="icon">
-              <img src="assets/images/icon-06.png" alt="">
+              <img src="{% static 'images/icon-06.png'%}" alt="">
             </div>
-            <h4>Sell Your NFT &amp; Make Profit</h4>
+            <h4>Venda sua NFT &amp; Faça Lucro</h4>
             <p>Lorem ipsum dolor sit amet, consectetu dipiscingei elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
         </div>
@@ -319,9 +321,8 @@ https://templatemo.com/tm-577-liberty-market
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <p>Copyright © 2022 <a href="#">Liberty</a> NFT Marketplace Co., Ltd. All rights reserved.
+          <p>Copyright © 2022 <a href="#">Liberty</a> NFT Co., Ltd. Todos os direitos reservados.
           &nbsp;&nbsp;
-          Designed by <a title="HTML CSS Templates" rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
         </div>
       </div>
     </div>
@@ -329,14 +330,14 @@ https://templatemo.com/tm-577-liberty-market
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="{% static 'jquery/jquery.min.js'%}"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.min.js'%}"></script>
 
-  <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
+  <script src="{% static 'js/isotope.min.js'%}"></script>
+  <script src="{% static 'js/owl-carousel.js'%}"></script>
 
-  <script src="assets/js/tabs.js"></script>
-  <script src="assets/js/popup.js"></script>
-  <script src="assets/js/custom.js"></script>
+  <script src="{% static 'js/tabs.js'%}"></script>
+  <script src="{% static 'js/popup.js'%}"></script>
+  <script src="{% static 'js/custom.js'%}"></script>
   </body>
 </html>
