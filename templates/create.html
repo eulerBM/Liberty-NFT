@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load widget_tweaks %}
 <html lang="pt-BR">
 
   <head>
@@ -108,42 +109,57 @@ https://templatemo.com/tm-577-liberty-market
         </div>
         <div class="col-lg-12">
           <form id="contact" action="" method="post">
+            {% csrf_token %} 
             <div class="row">
               <div class="col-lg-4">
                 <fieldset>
                   <label for="title">Título do item</label>
-                  <input type="title" name="title" id="title" placeholder="Ex. Leão azul" autocomplete="on" required>
+
+                    {% render_field form.titulo type="title" name="title" id="title" placeholder="Ex. Leão azul" autocomplete="on" %} 
+                  
                 </fieldset>
               </div>
               <div class="col-lg-4">
                 <fieldset>
                   <label for="description">Descrição do item</label>
-                  <input type="description" name="description" id="description" placeholder="Dê-nos a sua ideia" autocomplete="on" required>
+
+                    {% render_field form.descricao type="title" name="description" id="title" placeholder="Dê-nos a sua ideia" autocomplete="on"   %}
+
                 </fieldset>
               </div>
               <div class="col-lg-4">
                 <fieldset>
                   <label for="username">Seu nome de usuário</label>
-                  <input type="username" name="username" id="username" placeholder="Ex. @pedro_fernandes" autocomplete="on" required>
+
+                  {% render_field form.usuario  type="username" name="username" id="username" placeholder="Ex. @pedro_fernandes" autocomplete="on" %}
+                  
                 </fieldset>
               </div>
               <div class="col-lg-6">
                 <fieldset>
                   <label for="price">Preço do item</label>
-                  <input type="price" name="price" id="price" placeholder="O preço depende da qualidade. Ex. 0.06 ETH" autocomplete="on" required>
+
+                    {% render_field form.Preco type="number" name="price" id="price" placeholder="O preço depende da qualidade. Ex. 0.06 ETH" autocomplete="on" %}
+                  
                 </fieldset>
               </div>
               <div class="col-lg-6">
                 <fieldset>
                   <label for="royalities">Royalties</label>
-                  <input type="royalities" name="royalities" id="royalities" placeholder="Royalties comuns 1-25%" autocomplete="on" required>
+
+                  {% render_field form.royalties type="number" name="royalities" id="royalities" placeholder="Royalties comuns 1-25%" autocomplete="on" %}
+                  
                 </fieldset>
               </div>
               <div class="col-lg-4">
                 <fieldset>
+                  
                   <label for="file">Seu arquivo</label>
-                  <input type="file" id="file" name="myfiles[]" multiple />
+                  <input  type="file" id="file" name="myfiles[]" multiple >
+                  
                 </fieldset>
+
+
               </div>
               <div class="col-lg-8">
                 <fieldset>
