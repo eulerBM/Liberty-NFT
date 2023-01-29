@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import UserManager
+
 
 class items(models.Model):
 
@@ -8,9 +10,11 @@ class items(models.Model):
     Preco = models.FloatField(blank=False)
     royalties = models.PositiveIntegerField(blank=False)
     image = models.ImageField(upload_to="image/", blank=True)
+    objects = UserManager()
+    
 
     def __str__(self):
-        text = format(f'{self.usuario} / {self.titulo}')
+        text = self.usuario
         return text
 
     
