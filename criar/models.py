@@ -7,7 +7,7 @@ class items(models.Model):
     descricao = models.CharField(max_length=50, blank=False)
     Preco = models.FloatField(blank=False)
     royalties = models.PositiveIntegerField(blank=False)
-    image = models.ImageField(blank=True)
+    image = models.ImageField(upload_to="image/", blank=True)
 
     def __str__(self):
         text = format(f'{self.usuario} / {self.titulo}')
