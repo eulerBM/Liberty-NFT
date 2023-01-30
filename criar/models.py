@@ -1,10 +1,11 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.contrib.auth.models import UserManager
 
 
 class items(models.Model):
 
-    usuario = models.CharField(max_length=20, blank=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     titulo = models.CharField(max_length=30, blank=False)
     descricao = models.CharField(max_length=50, blank=False)
     Preco = models.FloatField(blank=False)
@@ -14,7 +15,7 @@ class items(models.Model):
     
 
     def __str__(self):
-        text = self.usuario
+        text = self.titulo
         return text
 
     

@@ -9,7 +9,9 @@ urlpatterns = [
     path('', views.home, name='home' ),
     path('explore/', views.explore, name='explore'),
     path('details/', views.details, name='details'),
-    path('author/', views.author, name='author'),
+
+    # URLS do autor
+    path('autor/', include('autor.urls')),
 
     # URLS de criar item
     path('criar/', include('criar.urls')),

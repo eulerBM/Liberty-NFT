@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from criar.forms import forms_user
 from django.contrib import messages
 from django.contrib.messages import constants
 from criar.models import items
 
-
+@login_required
 def criar (request): 
     form = forms_user() 
 
@@ -13,18 +14,12 @@ def criar (request):
 
     if request.method == 'POST':
         form = forms_user(request.POST)
-        get_username = request.POST.get('usuario')
-        get_user_bd = items.objects.filter(usuario=get_username)
-        
-        if get_user_bd:
-            messages.add_message(request, constants.ERROR, 'Usuario ja existe, tente outro.')
-            return render(request, 'create.html', {'form': form}) 
-       
-        elif form.is_valid():
-            form.save()
-            get_user = items.objects.get(usuario=get_username)
+               
+        if form.is_valid():
+            form.save()      
             messages.add_message(request, constants.SUCCESS, 'Cadastro realizado com sucesso.')
-            return render(request, 'create.html', {'form': form, 'usuario': get_user})    
+            form_clean = forms_user()
+            return render(request, 'create.html', {'form': form_clean})    
             
         else:
             messages.add_message(request, constants.ERROR, 'Falha, por favor tente outra vez.')

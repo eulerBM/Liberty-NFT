@@ -66,6 +66,17 @@ https://templatemo.com/tm-577-liberty-market
                         <li><a href="{% url 'details' %}">Detalhes do item</a></li>
                         <li><a href="{% url 'author' %}">Autor</a></li>
                         <li><a href="{% url 'create' %}">Crie o seu</a></li>
+
+                        {% if request.user.is_authenticated%}
+
+                          <li><a href="{% url 'account_logout' %}">Sair</a></li>
+
+                          {% else %}
+
+                          <li><a href="{% url 'account_login' %}">Entrar/Cadastro</a></li>
+
+                        {% endif %}
+
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>

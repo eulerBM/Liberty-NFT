@@ -68,6 +68,8 @@ https://templatemo.com/tm-577-liberty-market
                         <li><a href="{% url 'details' %}">Detalhes do item</a></li>
                         <li><a href="{% url 'author' %}">Autor</a></li>
                         <li><a class="active">Crie o seu</a></li> <!-- ***** Estou no Create ***** -->
+                        <li><a href="{% url 'account_logout' %}">Sair</a></li>
+
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -133,20 +135,12 @@ https://templatemo.com/tm-577-liberty-market
                   
                 </fieldset>
               </div>
-              <div class="col-lg-4">
+              <div class="col-lg-8">
                 <fieldset>
                   <label for="description">Descrição do item</label>
 
                     {% render_field form.descricao type="title" name="description" id="title" placeholder="Dê-nos a sua ideia" autocomplete="on"   %}
 
-                </fieldset>
-              </div>
-              <div class="col-lg-4">
-                <fieldset>
-                  <label for="username">Seu nome de usuário</label>
-
-                  {% render_field form.usuario  type="username" name="username" id="username" placeholder="Ex. @pedro_fernandes" autocomplete="on" %}
-                  
                 </fieldset>
               </div>
               <div class="col-lg-6">

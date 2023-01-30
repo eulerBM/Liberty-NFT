@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     #my_apps
     'home',
     'criar',
+    'autor',
 
     #form_custom
     'widget_tweaks',
@@ -164,3 +165,14 @@ MESSAGE_TAGS = {
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+# redirecionamento de login/logaut
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+
+# Form personalizado
+
+ACCOUNT_SIGNUP_FORM_CLASS = 'criar.forms.SignupForm'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ACCOUNT_EMAIL_VERIFICATION = "none"
