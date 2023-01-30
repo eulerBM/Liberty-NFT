@@ -9,12 +9,13 @@ urlpatterns = [
     path('', views.home, name='home' ),
     path('explore/', views.explore, name='explore'),
     path('details/', views.details, name='details'),
+    path('author/', views.author, name='author'),
 
-    # URLda pasta criar
+    # URLS de criar item
     path('criar/', include('criar.urls')),
 
-    # --------------------------- 
-    path('author/', views.author, name='author')
+    #Django allauth
+    path('accounts/', include('allauth.urls')),
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -15,15 +15,16 @@ def criar (request):
         form = forms_user(request.POST)
         get_username = request.POST.get('usuario')
         get_user_bd = items.objects.filter(usuario=get_username)
-
+        
         if get_user_bd:
             messages.add_message(request, constants.ERROR, 'Usuario ja existe, tente outro.')
             return render(request, 'create.html', {'form': form}) 
        
         elif form.is_valid():
             form.save()
+            get_user = items.objects.get(usuario=get_username)
             messages.add_message(request, constants.SUCCESS, 'Cadastro realizado com sucesso.')
-            return render(request, 'create.html', {'form': form, 'usuario': get_user_bd})    
+            return render(request, 'create.html', {'form': form, 'usuario': get_user})    
             
         else:
             messages.add_message(request, constants.ERROR, 'Falha, por favor tente outra vez.')
