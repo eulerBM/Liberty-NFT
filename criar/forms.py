@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model
 class forms_user (forms.ModelForm):
     class Meta:
         model = items
-        fields = '__all__'
+        fields = ['titulo', 'descricao', 'Preco', 'royalties', 'image']
 
 class SignupForm(forms.ModelForm):
     class Meta:

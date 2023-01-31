@@ -124,7 +124,7 @@ https://templatemo.com/tm-577-liberty-market
               {% endif %}
             </div>
 
-          <form id="contact" action="" method="post">
+          <form id="contact" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="row">
               <div class="col-lg-4">
@@ -162,10 +162,11 @@ https://templatemo.com/tm-577-liberty-market
               <div class="col-lg-4">
                 <fieldset>
                   
-                  <label for="file">Seu arquivo</label>
+                  <label for="image">Seu arquivo</label>
                     
-                    {% render_field form.image type="file" id="file" name="myfiles[]"  %}
-                  
+                  {% render_field form.image type="file" id="file" name="myfiles[]" %}
+
+                            
                 </fieldset>
 
 
