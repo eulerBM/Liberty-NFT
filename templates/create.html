@@ -198,28 +198,28 @@ https://templatemo.com/tm-577-liberty-market
         <div class="col-lg-5 align-self-center">
 
 
-          <h4>titulo</h4>
+          <h4>Titulo do item</h4>
 
 
           <span class="author">
             <img src="{% static 'images/author-02.jpg'%}" alt="" style="max-width: 50px; border-radius: 50%;">
-            <h6>{{ usuario }}<br><a href="#">@kataleey</a></h6>
+            <h6>{{ request.user.get_short_name }}<br><a href="#">@{{ request.user.get_username }}</a></h6>
           </span>
-          <p>descricao</p>
+          <p>Descrição do item</p>
           <div class="row">
             <div class="col-3">
               <span class="bid">
-                Oferta atual<br><strong>preço ETH</strong><br><em>($8055,35)</em>
+                Oferta atual<br><strong>1 ETH</strong><br><em>(${{ eth }})</em>
               </span>
             </div>
             <div class="col-4">
               <span class="owner">
-                Proprietário<br><strong>Alan Smithee</strong><br><em>(@asmithee)</em>
+                Proprietário<br><strong>{{ request.user.get_full_name }} </strong><br><em>@{{ request.user.get_username }}</em>
               </span>
             </div>
             <div class="col-5">
               <span class="ends">
-                Termina em<br><strong>3D 05H 20M 58S</strong><br><em>(January 22nd, 2021)</em>
+                Termina em<br><strong>5D 00H 00M </strong><br><em>{{ data }}</em>
               </span>
             </div>
           </div>

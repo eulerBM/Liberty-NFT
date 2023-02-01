@@ -11,6 +11,7 @@ class items(models.Model):
     Preco = models.FloatField(blank=False)
     royalties = models.PositiveIntegerField(blank=False)
     image = models.ImageField(upload_to="image/", null=True, blank=True)
+    data_esírada = models.DateTimeField(auto_now=True)
     objects = UserManager()
     
 
