@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/6699/6699366.png" type="image/x-icon">
 
-    <title>Liberty NFT - Autor </title>
+    <title>Liberty NFT - Conta </title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'bootstrap/css/bootstrap.min.css'%}"  rel="stylesheet">
@@ -63,7 +63,7 @@ https://templatemo.com/tm-577-liberty-market
                         <li><a href="{% url 'home' %}">Principal</a></li>
                         <li><a href="{% url 'explore' %}">Explorar</a></li>
                         <li><a href="{% url 'details' %}">Detalhes do item</a></li>
-                        <li><a class="active">Autor</a></li> <!-- ***** Estou no Author ***** -->
+                        <li><a class="active">Conta</a></li> <!-- ***** Estou no Author ***** -->
                         <li><a href="{% url 'create' %}">Crie o seu</a></li>
                         <li><a href="{% url 'account_logout' %}">Sair</a></li>
                         
@@ -83,15 +83,15 @@ https://templatemo.com/tm-577-liberty-market
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h6>Detalhes do autor</h6>
-          <h2>Exibir detalhes do autor</h2>
+          <h6>Detalhes da conta</h6>
+          <h2>Exibir detalhes da minha conta</h2>
           <span>Home > <a >Author</a></span>
           <div class="buttons">
             <div class="main-button">
-              <a href="explore.html">Explore nossos itens</a>
+              <a href="{% url 'explore'%}">Explore nossos itens</a>
             </div>
             <div class="border-button">
-              <a href="create.html">Crie sua NFT</a>
+              <a href="{% url 'create' %}">Crie sua NFT</a>
             </div>
           </div>
         </div>
@@ -105,7 +105,7 @@ https://templatemo.com/tm-577-liberty-market
         <div class="col-lg-6">
           <div class="author">
             <img src="{% static 'images/single-author.jpg'%}" alt="" style="border-radius: 50%; max-width: 170px;">
-            <h4>{{ request.user.get_full_name }} <br> <a href="#">@{{ request.user}}</a></h4>
+            <h4>{{ request.user.get_full_name }} <br> <a href="#">@{{ request.user }}</a></h4>
           </div>
         </div>
         <div class="col-lg-6">
@@ -132,13 +132,22 @@ https://templatemo.com/tm-577-liberty-market
             </div>
             <div class="row">
               <div class="col-5">
-                <h5>559 Seguidores</h5>
+                <h5>100 Seguidores</h5>
               </div>
-              <div class="col-7">
-                <div class="main-button">
-                  <a href="#">Seguir @melanie32</a>
-                </div>
-              </div>
+          
+                    
+              
+                
+                  <div class="col-7">
+                    <div class="main-button">
+                      <a href="#">Voce não pode Se seguir :(</a>
+                    </div>
+                  </div>
+
+              
+
+              
+              
             </div>
           </div>
         </div>
@@ -148,126 +157,51 @@ https://templatemo.com/tm-577-liberty-market
             <h2>Itens de <em>{{ request.user.first_name }}</em>.</h2>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="item">
-            <div class="row">
-              <div class="col-lg-12">
-                <span class="author">
-                  <img src="{% static 'images/author.jpg'%}" alt="" style="max-width: 50px; border-radius: 50%;">
-                </span>
-                <img src="{% static 'images/discover-03.jpg'%}" alt="" style="border-radius: 20px;">
-                <h4>Mutant Ape Bored</h4>
-              </div>
-              <div class="col-lg-12">
-                <div class="line-dec"></div>
+
+        {% for items in item %}
+
+          <div class="col-lg-3 col-md-6">
+            <div class="item">
                 <div class="row">
-                  <div class="col-6">
-                    <span>Current Bid: <br> <strong>2.03 ETH</strong></span>
+                  <div class="col-lg-12">
+                    <span class="author">
+                      <img src="{% static 'images/author.jpg'%}" alt="" style="max-width: 50px; border-radius: 50%;">
+                    </span>
+                    <img src="{{ items.image.url }}" alt="" style="border-radius: 20px;">
+                    <h4>{{ items.titulo }}</h4>
                   </div>
-                  <div class="col-6">
-                    <span>Ends In: <br> <strong>25th Nov</strong></span>
+                    <div class="col-lg-12">
+                      <div class="line-dec"></div>
+                      <div class="row">
+                      <div class="col-6">
+                        
+                        
+                
+                        
+                        
+                        <span>ETH: {{ items.Preco }}   <br> <strong> <h6>R$ {{ items.total }}</h6>  </strong></span>
+                        
+                      
+                      </div>
+                    <div class="col-6">
+                      <span>Termina em: <br> <strong> {{ items.data_atual|date:"d/m/Y" }}</strong></span> 
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-lg-12">
-                <div class="main-button">
-                  <a href="details.html">Ver detalhes</a>
+                  <div class="col-lg-12">
+                  <div class="main-button">
+                    <a href="details.html">Ver detalhes</a>
+                  </div>
                 </div>
-              </div>
+              </div> 
             </div>
           </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="item">
-            <div class="row">
-              <div class="col-lg-12">
-                <span class="author">
-                  <img src="{% static 'images/author-02.jpg'%}" alt="" style="max-width: 50px; border-radius: 50%;">
-                </span>
-                <img src="{% static 'images/discover-06.jpg'%}" alt="" style="border-radius: 20px;">
-                <h4>Mutant Ape Bored</h4>
-              </div>
-              <div class="col-lg-12">
-                <div class="line-dec"></div>
-                <div class="row">
-                  <div class="col-6">
-                    <span>Current Bid: <br> <strong>2.03 ETH</strong></span>
-                  </div>
-                  <div class="col-6">
-                    <span>Ends In: <br> <strong>25th Nov</strong></span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div class="main-button">
-                  <a href="details.html">Ver detalhes</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="item">
-            <div class="row">
-              <div class="col-lg-12">
-                <span class="author">
-                  <img src="{% static 'images/author.jpg'%}" alt="" style="max-width: 50px; border-radius: 50%;">
-                </span>
-                <img src="{% static 'images/discover-05.jpg'%}" alt="" style="border-radius: 20px;">
-                <h4>Mutant Ape Bored</h4>
-              </div>
-              <div class="col-lg-12">
-                <div class="line-dec"></div>
-                <div class="row">
-                  <div class="col-6">
-                    <span>Current Bid: <br> <strong>2.03 ETH</strong></span>
-                  </div>
-                  <div class="col-6">
-                    <span>Ends In: <br> <strong>25th Nov</strong></span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div class="main-button">
-                  <a href="details.html">Ver detalhes</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="item">
-            <div class="row">
-              <div class="col-lg-12">
-                <span class="author">
-                  <img src="{% static 'images/author-03.jpg'%}" alt="" style="max-width: 50px; border-radius: 50%;">
-                </span>
-                <img src="{% static 'images/discover-04.jpg'%}" alt="" style="border-radius: 20px;">
-                <h4>Mutant Ape Bored</h4>
-              </div>
-              <div class="col-lg-12">
-                <div class="line-dec"></div>
-                <div class="row">
-                  <div class="col-6">
-                    <span>Current Bid: <br> <strong>2.03 ETH</strong></span>
-                  </div>
-                  <div class="col-6">
-                    <span>Ends In: <br> <strong>25th Nov</strong></span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div class="main-button">
-                  <a href="details.html">Ver detalhes</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
+        {% endfor %}
+ 
       </div>
     </div>
   </div>
-
   <div class="create-nft">
     <div class="container">
       <div class="row">
@@ -279,7 +213,7 @@ https://templatemo.com/tm-577-liberty-market
         </div>
         <div class="col-lg-4">
           <div class="main-button">
-            <a href="create.html">Crie seu NFT agora</a>
+            <a href="{% url 'create'%}">Crie seu NFT agora</a>
           </div>
         </div>
         <div class="col-lg-4">
@@ -291,7 +225,7 @@ https://templatemo.com/tm-577-liberty-market
               <img src="{% static 'images/icon-02.png'%}" alt="">
             </div>
             <h4>Configurar sua carteira</h4>
-            <p>Lorem ipsum dolor sit amet, consectetu dipiscingei elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Configure sua carteira para garantir segurança e facilidade ao gerenciar suas finanças.</p>
           </div>
         </div>
         <div class="col-lg-4">
@@ -303,7 +237,7 @@ https://templatemo.com/tm-577-liberty-market
               <img src="{% static 'images/icon-04.png'%}" alt="">
             </div>
             <h4>Adicione sua NFT digital</h4>
-            <p>Lorem ipsum dolor sit amet, consectetu dipiscingei elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Adicione sua NFT digital para expandir sua coleção e preservar sua propriedade digital de forma segura e acessível.</p>
           </div>
         </div>
         <div class="col-lg-4">
@@ -312,7 +246,7 @@ https://templatemo.com/tm-577-liberty-market
               <img src="{% static 'images/icon-06.png'%}" alt="">
             </div>
             <h4>Venda sua NFT &amp; Faça Lucro</h4>
-            <p>Lorem ipsum dolor sit amet, consectetu dipiscingei elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Venda sua NFT e aproveite as oportunidades do mercado digital para aumentar seu patrimônio e realizar lucros.</p>
           </div>
         </div>
       </div>

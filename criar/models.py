@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth.models import UserManager
-
+import datetime
 
 class items(models.Model):
 
@@ -11,12 +11,19 @@ class items(models.Model):
     Preco = models.FloatField(blank=False)
     royalties = models.PositiveIntegerField(blank=False)
     image = models.ImageField(upload_to="image/", null=True, blank=True)
-    data_esírada = models.DateTimeField(auto_now=True)
+    data_atual = models.DateTimeField()
     objects = UserManager()
     
 
     def __str__(self):
         return self.titulo
+    
+    def save(self, *args, **kwargs):
+        self.data_atual = datetime.datetime.now() + datetime.timedelta(days=5)
+        super().save(*args, **kwargs)
+    
+    
+
 
     
 

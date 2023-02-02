@@ -3,8 +3,10 @@ from django.contrib.auth.decorators import login_required
 from criar.forms import forms_user
 from django.contrib import messages
 from django.contrib.messages import constants
+from criar.models import *
 from datetime import date
 import requests
+
 
 
 @login_required
@@ -19,7 +21,7 @@ def criar (request):
                
         if form.is_valid():
             order = form.save(commit=False)
-            order.user = request.user
+            order.user = request.user    
             order.save()
             messages.add_message(request, constants.SUCCESS, 'Item cadastrado com sucesso.')
             return redirect("create")

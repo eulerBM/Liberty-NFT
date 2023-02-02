@@ -64,7 +64,7 @@ https://templatemo.com/tm-577-liberty-market
                         <li><a class="active">Principal</a></li> <!-- ***** Estou no Index ***** -->
                         <li><a href="{% url 'explore' %}">Explorar</a></li>
                         <li><a href="{% url 'details' %}">Detalhes do item</a></li>
-                        <li><a href="{% url 'author' %}">Autor</a></li>
+                        <li><a href="{% url 'author' %}">Conta</a></li>
                         <li><a href="{% url 'create' %}">Crie o seu</a></li>
 
                         {% if request.user.is_authenticated%}
@@ -281,7 +281,7 @@ https://templatemo.com/tm-577-liberty-market
         </div>
         <div class="col-lg-4">
           <div class="main-button">
-            <a href="create.html">Crie seu NFT agora</a>
+            <a href="{% url 'create'%}">Crie seu NFT agora</a>
           </div>
         </div>
         <div class="col-lg-4">
