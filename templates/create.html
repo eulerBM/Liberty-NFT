@@ -123,6 +123,9 @@ https://templatemo.com/tm-577-liberty-market
 
           <form id="contact" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
+            
+            <table><h4>A NFT expira depois de 5 dias</h4></table><br>
+            
             <div class="row">
               <div class="col-lg-4">
                 <fieldset>
@@ -159,7 +162,7 @@ https://templatemo.com/tm-577-liberty-market
               <div class="col-lg-4">
                 <fieldset>
                   
-                  <label for="image">Seu arquivo</label>
+                  <label for="image">Subir NFT</label>
                     
                   {% render_field form.image type="file" id="file" name="myfiles[]" %}
 
