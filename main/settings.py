@@ -24,10 +24,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+
     #my_apps
     'home',
     'criar',
     'autor',
+ 
 
     #form_custom
     'widget_tweaks',
@@ -177,3 +179,7 @@ LOGOUT_REDIRECT_URL = '/'
 ACCOUNT_SIGNUP_FORM_CLASS = 'criar.forms.SignupForm'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 ACCOUNT_EMAIL_VERIFICATION = "none"
+
+
+
+

@@ -12,6 +12,8 @@ import requests
 @login_required
 def criar (request): 
     if request.method == 'GET': 
+        delet_item = items.objects.filter(data_atual=datetime.datetime.now())     
+        delet_item.delete()
         url = "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BRL"
         response = requests.get(url).json()
         return render(request, 'create.html', {'form': forms_user(), 'data': date.today(), 'eth': response["BRL"]})
