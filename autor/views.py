@@ -11,6 +11,9 @@ import requests
 @login_required
 def author(request):
     if request.method == 'GET':
+        if items.objects.filter(data_atual=datetime.datetime.now()):
+            delet_item = items.objects.filter(data_atual=datetime.datetime.now())     
+            delet_item.delete()
         items_list = items.objects.filter(user=request.user)
         url = "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BRL"
         response = requests.get(url).json()

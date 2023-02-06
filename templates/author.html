@@ -62,7 +62,6 @@ https://templatemo.com/tm-577-liberty-market
                     <ul class="nav">
                         <li><a href="{% url 'home' %}">Principal</a></li>
                         <li><a href="{% url 'explore' %}">Explorar</a></li>
-                        <li><a href="{% url 'details' %}">Detalhes do item</a></li>
                         <li><a class="active">Conta</a></li> <!-- ***** Estou no Author ***** -->
                         <li><a href="{% url 'create' %}">Crie o seu</a></li>
                         <li><a href="{% url 'account_logout' %}">Sair</a></li>
@@ -191,7 +190,7 @@ https://templatemo.com/tm-577-liberty-market
                 </div>
                   <div class="col-lg-12">
                   <div class="main-button">
-                    <a href="details.html">Ver detalhes</a>
+                    <a href="{% url 'details' items.id %}">Ver detalhes</a>
                   </div>
                 </div>
               </div> 

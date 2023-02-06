@@ -29,6 +29,8 @@ INSTALLED_APPS = [
     'home',
     'criar',
     'autor',
+    'detalhes',
+    'explorar',
  
 
     #form_custom

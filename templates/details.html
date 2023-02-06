@@ -112,30 +112,30 @@ https://templatemo.com/tm-577-liberty-market
         </div>
         <div class="col-lg-7">
           <div class="left-image">
-            <img src="{% static 'images/item-details-01.jpg'%}" alt="" style="border-radius: 10px;" >
+            <img src="{{ item.image.url }}" alt="" style="border-radius: 10px;" >
           </div>
         </div>
         <div class="col-lg-5 align-self-center">
-          <h4>Dolores Haze Westworld Eye</h4>
+          <h4>{{ item.titulo }}</h4>
           <span class="author">
             <img src="{% static 'images/author-02.jpg'%}" alt="" style="max-width: 50px; border-radius: 50%;">
-            <h6>Liberty Artist<br><a href="#">@libertyart</a></h6>
+            <h6>{{ item.user.first_name}}<br><a href="#">@{{ item.user }}</a></h6>
           </span>
-          <p>Lorem ipsum dolor sit amet, consectetu dipiscingei elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p>{{ item.descricao }}</p>
           <div class="row">
             <div class="col-3">
               <span class="bid">
-                Current Bid<br><strong>6.06 ETH</strong><br><em>($8,025.50)</em>
+                Preço<br><strong>{{ item.Preco }} ETH</strong><br><em>({{ eth }})</em>
               </span>
             </div>
             <div class="col-4">
               <span class="owner">
-                Owner<br><strong>David Walker</strong><br><em>(@davidwalker)</em>
+                Proprietário<br><strong>{{ item.user.get_full_name }}</strong><br><em>(@{{ item.user }})</em>
               </span>
             </div>
             <div class="col-5">
               <span class="ends">
-                Ends In<br><strong>3D 05H 20M 58S</strong><br><em>(January 22nd, 2021)</em>
+                Termina em<br><strong>{{ item.data_atual|date:"d/m/Y"  }}</strong><br><em>({{ item.data_atual|date }})</em>
               </span>
             </div>
           </div>
@@ -154,7 +154,7 @@ https://templatemo.com/tm-577-liberty-market
               <div class="col-lg-6">
                 <fieldset>
                   <select name="Category" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
-                      <option selected>Sort By: Latest</option>
+                      <option selected>Ordenar por: Mais recente</option>
                       <option type="checkbox" name="option1" value="old">Sort By: Oldest</option>
                       <option value="low">Sort By: Lowest</option>
                       <option value="high">Sort By: Highest</option>

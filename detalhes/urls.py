@@ -4,6 +4,6 @@ from detalhes.views import *
 
 
 urlpatterns = [
-    path('', details , name='details'),
+    path('<int:id>', details , name='details'),
        
 ]
