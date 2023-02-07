@@ -6,6 +6,7 @@ from criar.models import *
 def explore(request):
     if request.method == 'GET':
         item_all = items.objects.all()
+    
 
         context = {
             'items': item_all,

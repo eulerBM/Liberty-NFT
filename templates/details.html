@@ -137,11 +137,12 @@ https://templatemo.com/tm-577-liberty-market
                 Termina em<br><strong>{{ item.data_atual|date:"d/m/Y"  }}</strong><br><em>({{ item.data_atual|date }})</em>
               </span>
             </div>
+           
           </div>
           <form action="submit">
-            <label for="quantity-text">Colocar lance:</label>
-            <input placeholder="1 ETH" class="quantity-text">
-            <button type="submit" id="form-submit" class="main-button">Envie agora</button>
+            <label for="quantity-text">Preço:</label>
+            <input  placeholder="{{ item.Preco }} " class="quantity-text" disabled="disabled" >
+            <button type="submit" id="form-submit" class="main-button">Comprar</button>
           </form>
         </div>
         <div class="col-lg-12">
@@ -154,96 +155,28 @@ https://templatemo.com/tm-577-liberty-market
                 <fieldset>
                   <select name="Category" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
                       <option selected>Ordenar por: Mais recente</option>
-                      <option type="checkbox" name="option1" value="old">Sort By: Oldest</option>
-                      <option value="low">Sort By: Lowest</option>
-                      <option value="high">Sort By: Highest</option>
+                      <option type="checkbox" name="option1" value="old">Ordenar por: mais antigo</option>
+                      <option value="low">Ordenar por: Mais baixo</option>
+                      <option value="high">Ordenar por: Mais Altost</option>
                   </select>
               </fieldset>
               </div>
+            {% for item in item_2 %}
               <div class="col-lg-4 col-md-6">
                 <div class="item">
                   <div class="left-img">
-                    <img src="{% static 'images/current-01.jpg'%}" alt="">
+                    <img src="{{ item.image.url }}" alt="">
                   </div>
                   <div class="right-content">
-                    <h4>David Walker</h4>
-                    <a href="#">@davidwalker</a>
+                    <h4>{{ item.titulo }}</h4>
+                    <a href="#">@{{ item.user}}</a>
                     <div class="line-dec"></div>
-                    <h6>Bid: <em>0.06 ETH</em></h6>
-                    <span class="date">24/07/2022, 22:00</span>
+                    <h6>Oferta: <em>{{ item.Preco }} ETH</em></h6>
+                    <span class="date">{{ item.data_atual|date:"d/m/Y"  }}</span>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="item">
-                  <div class="left-img">
-                    <img src="{% static 'images/current-02.jpg'%}" alt="">
-                  </div>
-                  <div class="right-content">
-                    <h4>David Walker</h4>
-                    <a href="#">@davidwalker</a>
-                    <div class="line-dec"></div>
-                    <h6>Bid: <em>0.06 ETH</em></h6>
-                    <span class="date">24/07/2022, 22:00</span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="item">
-                  <div class="left-img">
-                    <img src="{% static 'images/current-03.jpg'%}" alt="">
-                  </div>
-                  <div class="right-content">
-                    <h4>David Walker</h4>
-                    <a href="#">@davidwalker</a>
-                    <div class="line-dec"></div>
-                    <h6>Bid: <em>0.06 ETH</em></h6>
-                    <span class="date">24/07/2022, 22:00</span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="item">
-                  <div class="left-img">
-                    <img src="{% static 'images/current-02.jpg'%}" alt="">
-                  </div>
-                  <div class="right-content">
-                    <h4>David Walker</h4>
-                    <a href="#">@davidwalker</a>
-                    <div class="line-dec"></div>
-                    <h6>Bid: <em>0.06 ETH</em></h6>
-                    <span class="date">24/07/2022, 22:00</span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="item">
-                  <div class="left-img">
-                    <img src="{% static 'images/current-04.jpg'%}" alt="">
-                  </div>
-                  <div class="right-content">
-                    <h4>David Walker</h4>
-                    <a href="#">@davidwalker</a>
-                    <div class="line-dec"></div>
-                    <h6>Bid: <em>0.06 ETH</em></h6>
-                    <span class="date">24/07/2022, 22:00</span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="item">
-                  <div class="left-img">
-                    <img src="{% static 'images/current-01.jpg'%}" alt="">
-                  </div>
-                  <div class="right-content">
-                    <h4>David Walker</h4>
-                    <a href="#">@davidwalker</a>
-                    <div class="line-dec"></div>
-                    <h6>Bid: <em>0.06 ETH</em></h6>
-                    <span class="date">24/07/2022, 22:00</span>
-                  </div>
-                </div>
-              </div>
+            {% endfor %}
             </div>
           </div>
         </div>
@@ -262,7 +195,7 @@ https://templatemo.com/tm-577-liberty-market
         </div>
         <div class="col-lg-4">
           <div class="main-button">
-            <a href="create.html">Crie seu NFT agora</a>
+            <a href="{% url 'create'%}">Crie seu NFT agora</a>
           </div>
         </div>
         <div class="col-lg-4">
@@ -274,7 +207,7 @@ https://templatemo.com/tm-577-liberty-market
               <img src="{% static 'images/icon-02.png'%}" alt="">
             </div>
             <h4>Configurar sua carteira</h4>
-            <p>There are 5 different HTML pages included in this NFT <a href="https://templatemo.com/page/1" target="_blank" rel="nofollow">website template</a>. You can edit or modify any section on any page as you required.</p>
+            <p>Configure sua carteira para garantir segurança e facilidade ao gerenciar suas finanças.</p>
           </div>
         </div>
         <div class="col-lg-4">
@@ -286,7 +219,7 @@ https://templatemo.com/tm-577-liberty-market
               <img src="{% static 'images/icon-04.png'%}" alt="">
             </div>
             <h4>Adicione sua NFT digital</h4>
-            <p>If you would like to support our TemplateMo website, please visit <a rel="nofollow" href="https://templatemo.com/contact" target="_parent">our contact page</a> to make a PayPal contribution. Thank you.</p>
+            <p>Adicione sua NFT digital para expandir sua coleção e preservar sua propriedade digital de forma segura e acessível.</p>
           </div>
         </div>
         <div class="col-lg-4">
@@ -295,7 +228,7 @@ https://templatemo.com/tm-577-liberty-market
               <img src="{% static 'images/icon-06.png'%}" alt="">
             </div>
             <h4>Venda sua NFT &amp; Faça Lucro</h4>
-            <p>NFT means Non-Fungible Token that are used in digital cryptocurrency markets. There are many different kinds of NFTs in the industry.</p>
+            <p>Venda sua NFT e aproveite as oportunidades do mercado digital para aumentar seu patrimônio e realizar lucros.</p>
           </div>
         </div>
       </div>
