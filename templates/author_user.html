@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load static %}
+{% load static%}
 <html lang="pt-BR">
 
   <head>
@@ -11,12 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/6699/6699366.png" type="image/x-icon">
 
-    <title>Liberty NFT - Detalhes </title>
+    <title>Liberty NFT - {{ user.user.first_name}} </title>
 
     <!-- Bootstrap core CSS -->
-    <link href={% static 'bootstrap/css/bootstrap.min.css'%} rel="stylesheet">
+    <link href="{% static 'bootstrap/css/bootstrap.min.css'%}"  rel="stylesheet">
+    
 
-  
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{% static 'css/fontawesome.css'%}">
     <link rel="stylesheet" href="{% static 'css/templatemo-liberty-market.css'%}">
@@ -25,14 +25,12 @@
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 <!--
 
-TemplateMo 577 Liberty Market	
+TemplateMo 577 Liberty Market
 
 https://templatemo.com/tm-577-liberty-market
 
 -->
   </head>
-
-  
 
 <body>
 
@@ -57,17 +55,17 @@ https://templatemo.com/tm-577-liberty-market
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="index.html" class="logo">
-                        <img src={% static 'images/logo.png'%} alt="">
+                        <img src="{% static 'images/logo.png'%}" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="{% url 'home' %}">Principal</a></li>
                         <li><a href="{% url 'explore' %}">Explorar</a></li>
-                        <li><a href="{% url 'author' %}">Conta</a></li>
+                        <li><a class="active">Conta de {{ user.first_name }}</a></li> <!-- ***** Estou no Author ***** -->
                         <li><a href="{% url 'create' %}">Crie o seu</a></li>
                         <li><a href="{% url 'account_logout' %}">Sair</a></li>
-
+                        
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -84,15 +82,15 @@ https://templatemo.com/tm-577-liberty-market
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h6>Liberty NFT </h6>
-          <h2>detalhes dos items</h2>
-          <span>Home > <a>Item Details</a></span>
+          <h6>Detalhes da conta de {{ user.first_name }}</h6>
+          <h2>Detalhes da conta de {{ user.get_full_name}} </h2>
+          <span>Home > <a >Author</a></span>
           <div class="buttons">
             <div class="main-button">
-              <a href={% url 'explore'%}>Explore nossos itens</a>
+              <a href="{% url 'explore'%}">Explore nossos itens</a>
             </div>
             <div class="border-button">
-              <a href="{% url 'create'%}">Crie sua NFT</a>
+              <a href="{% url 'create' %}">Crie sua NFT</a>
             </div>
           </div>
         </div>
@@ -100,97 +98,117 @@ https://templatemo.com/tm-577-liberty-market
     </div>
   </div>
 
-  <div class="item-details-page">
+  <div class="author-page">
     <div class="container">
       <div class="row">
+        <div class="col-lg-6">
+          <div class="author">
+            <img src="{% static 'images/single-author.jpg'%}" alt="" style="border-radius: 50%; max-width: 170px;">        
+            <h4>{{ user.get_full_name }} <br> <a>@{{ user }}</a></h4>      
+          </div>
+
+          
+
+        </div>
+          
+        <div class="col-lg-6">
+          <div class="right-info">
+            <div class="row">
+              <div class="col-4">
+                <div class="info-item">
+                  <i class="fa fa-heart"></i>
+                  <h6>0 <em>Likes</em></h6>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="info-item">
+                  <i class="fa fa-hand"></i>
+                  <h6>0 <em>Likes</em></h6>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="info-item">
+                  <i class="fa fa-dollar"></i>
+                  <h6>0 <em>Likes</em></h6>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-5">
+                <h5>0 Seguidores</h5>
+              </div>
+                       
+                  <div class="col-7">
+                    <div class="main-button">
+                      <a href="#">seguir </a>
+                    </div>
+                  </div>
+
+              
+
+              
+              
+            </div>
+          </div>
+        </div>
         <div class="col-lg-12">
           <div class="section-heading">
             <div class="line-dec"></div>
-            <h2>Ver detalhes <em>Para Item</em> Aqui.</h2>
+            <h2>Itens de <em>{{ user.first_name }}</em>.</h2>
           </div>
         </div>
-        <div class="col-lg-7">
-          <div class="left-image">
-            <img src="{{ item.image.url }}" alt="" style="border-radius: 10px;" >
-          </div>
-        </div>
-        <div class="col-lg-5 align-self-center">
-          <h4>{{ item.titulo }}</h4>
-          <span class="author">
-            <img src="{% static 'images/author-02.jpg'%}" alt="" style="max-width: 50px; border-radius: 50%;">
-            <h6>{{ item.user.first_name}}<br><a href="{% url 'outro_user' item.user.id %}">@{{ item.user }}</a></h6>
-          </span>
-          <p>{{ item.descricao }}</p>
-          <div class="row">
-            <div class="col-3">
-              <span class="bid">
-                Preço<br><strong>{{ item.Preco }} ETH</strong><br><em>({{ eth }})</em>
-              </span>
-            </div>
-            <div class="col-4">
-              <span class="owner">
-                Proprietário<br><strong>{{ item.user.get_full_name }}</strong><br><em>(@{{ item.user }})</em>
-              </span>
-            </div>
-            <div class="col-5">
-              <span class="ends">
-                Termina em<br><strong>{{ item.data_atual|date:"d/m/Y"  }}</strong><br><em>({{ item.data_atual|date }})</em>
-              </span>
-            </div>
-           
-          </div>
-          <form action="submit">
-            <label for="quantity-text">Preço:</label>
-            <input  placeholder="{{ item.Preco }} " class="quantity-text" disabled="disabled" >
-            <button type="submit" id="form-submit" class="main-button">Comprar</button>
-          </form>
-        </div>
-        <div class="col-lg-12">
-          <div class="current-bid">
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="mini-heading"><h4>Preços de lances atuais ( ETH )</h4></div>
-              </div>
-              <div class="col-lg-6">
-                <fieldset>
-                  <select name="Category" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
-                      <option selected>Ordenar por: Mais recente</option>
-                      <option type="checkbox" name="option1" value="old">Ordenar por: mais antigo</option>
-                      <option value="low">Ordenar por: Mais baixo</option>
-                      <option value="high">Ordenar por: Mais Altost</option>
-                  </select>
-              </fieldset>
-              </div>
-            {% for item in item_2 %}
-              <div class="col-lg-4 col-md-6">
-                <div class="item">
-                  <div class="left-img">
-                    <img src="{{ item.image.url }}" alt="">
+
+        {% for items in item %}
+
+          <div class="col-lg-3 col-md-6">
+            <div class="item">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <span class="author">
+                      <img src="{% static 'images/author.jpg'%}" alt="" style="max-width: 50px; border-radius: 50%;">
+                    </span>
+                    <img src="{{ items.image.url }}" alt="" style="border-radius: 20px;">
+                    <h4>{{ items.titulo }}</h4>
                   </div>
-                  <div class="right-content">
-                    <h4>{{ item.titulo }}</h4>
-                    <a href="{% url 'outro_user' item.user.id %}">@{{ item.user}}</a>
-                    <div class="line-dec"></div>
-                    <h6>Oferta: <em>{{ item.Preco }} ETH</em></h6>
-                    <span class="date">{{ item.data_atual|date:"d/m/Y"  }}</span>
+                    <div class="col-lg-12">
+                      <div class="line-dec"></div>
+                      <div class="row">
+                      <div class="col-6">
+                        
+                        
+                
+                        
+                        
+                        <span>ETH: {{ items.Preco }}   <br> <strong> <h6>R$ </h6>  </strong></span>
+                        
+                      
+                      </div>
+                    <div class="col-6">
+                      <span>Termina em: <br> <strong> {{ items.data_atual|date:"d/m/Y" }}</strong></span> 
+                    </div>
                   </div>
                 </div>
-              </div>
-            {% endfor %}
+                  <div class="col-lg-12">
+                  <div class="main-button">
+                    <a href="{% url 'details' items.id %}">Ver detalhes</a>
+                  </div>
+                </div>
+              </div> 
             </div>
           </div>
-        </div>
+
+        {% endfor %}
+ 
       </div>
     </div>
   </div>
-
   <div class="create-nft">
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
           <div class="section-heading">
             <div class="line-dec"></div>
-            <h2>Crie sua NFT & Coloque no mercado.</h2>
+            <h2>Crie seu NFT e coloque-o no mercado.</h2>
           </div>
         </div>
         <div class="col-lg-4">
@@ -251,11 +269,11 @@ https://templatemo.com/tm-577-liberty-market
   <script src="{% static 'jquery/jquery.min.js'%}"></script>
   <script src="{% static 'bootstrap/js/bootstrap.min.js'%}"></script>
 
-  <script src="{% static 'js/isotope.min.js'%}" ></script>
-  <script src="{% static 'js/owl-carousel.js'%}" ></script>
+  <script src="{% static 'js/isotope.min.js'%}"></script>
+  <script src="{% static 'js/owl-carousel.js'%}"></script>
 
-  <script src="{% static 'js/tabs.js'%}" ></script>
-  <script src="{% static 'js/popup.js'%}" ></script>
-  <script src="{% static 'js/custom.js'%}" ></script>
+  <script src="{% static 'js/tabs.js'%}"></script>
+  <script src="{% static 'js/popup.js'%}"></script>
+  <script src="{% static 'js/custom.js'%}"></script>
   </body>
 </html>

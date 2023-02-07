@@ -104,7 +104,7 @@ https://templatemo.com/tm-577-liberty-market
                       <h4>{{ item.titulo }}</h4>
                       <span class="author">
                         <img src="{% static 'images/author.jpg'%}" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                        <h6>{{ item.user.get_full_name}}<br><a href="#">@{{ item.user}}</a></h6>
+                        <h6>{{ item.user.get_full_name}}<br><a href="{% url 'outro_user' item.user.id %}">@{{ item.user}}</a></h6>
                       </span>
                     </div>
                   </div>

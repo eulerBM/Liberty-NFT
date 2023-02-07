@@ -33,6 +33,19 @@ def author(request):
         return render (request, 'author.html', context)
     
     
+
+def conta_de_outro_user(request, id):
+    if request.method == 'GET':
+        get_user = User.objects.get(id=id)
+        filter_user = items.objects.filter(user=id)
+
+        context = {
+            'user': get_user,
+            'item': filter_user
+        }
+
+        return render (request, 'author_user.html', context)
+
         
            
     
