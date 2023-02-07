@@ -11,8 +11,7 @@ def details(request, id):
         url = "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BRL"
         response = requests.get(url).json()
         eth_price = response["BRL"]
-        resul = '{:,.2f}'.format(int(item.Preco * eth_price))
-        
+        resul = '{:,.2f}'.format(int(item.Preco * eth_price))     
 
         context = {
             'item': item,

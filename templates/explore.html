@@ -93,62 +93,26 @@ https://templatemo.com/tm-577-liberty-market
         <div class="row">
           <div class="col-lg-12">
             <div class="owl-features owl-carousel">
+
+            {% for item in items %}
+
               <div class="item">
                 <div class="thumb">
-                  <img src="{% static 'images/featured-01.jpg'%}" alt="" style="border-radius: 20px;">
+                  <img src="{{ item.image.url }}" alt="" style="border-radius: 20px;">
                   <div class="hover-effect">
                     <div class="content">
-                      <h4>Triple Mutant Ape Bored</h4>
+                      <h4>{{ item.titulo }}</h4>
                       <span class="author">
                         <img src="{% static 'images/author.jpg'%}" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                        <h6>Liberty Artist<br><a href="#">@libertyart</a></h6>
+                        <h6>{{ item.user.get_full_name}}<br><a href="#">@{{ item.user}}</a></h6>
                       </span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="item">
-                <div class="thumb">
-                  <img src="{% static 'images/featured-02.jpg'%}" alt="" style="border-radius: 20px;">
-                  <div class="hover-effect">
-                    <div class="content">
-                      <h4>Bored Ape Kennel Club</h4>
-                      <span class="author">
-                        <img src="{% static 'images/author.jpg'%}" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                        <h6>Liberty Artist<br><a href="#">@libertyart</a></h6>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="thumb">
-                  <img src="{% static 'images/featured-03.jpg'%}" alt="" style="border-radius: 20px;">
-                  <div class="hover-effect">
-                    <div class="content">
-                      <h4>Genesis Club by KMT</h4>
-                      <span class="author">
-                        <img src="{% static 'images/author.jpg'%}" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                        <h6>Liberty Artist<br><a href="#">@libertyart</a></h6>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="thumb">
-                  <img src="{% static 'images/featured-04.jpg'%}" alt="" style="border-radius: 20px;">
-                  <div class="hover-effect">
-                    <div class="content">
-                      <h4>Crypto Aurora Guy</h4>
-                      <span class="author">
-                        <img src="{% static 'images/author.jpg'%}" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                        <h6>Liberty Artist<br><a href="#">@libertyart</a></h6>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
+            {% endfor %}
+
             </div>
           </div>
         </div>
@@ -166,87 +130,24 @@ https://templatemo.com/tm-577-liberty-market
           </div>
         </div>
         <div class="col-lg-7">
-          <form id="search-form" name="gs" method="submit" role="search" action="#">
+          <form id="search-form" name="gs" method="GET" role="search"  >
             <div class="row">
-              <div class="col-lg-4">
+              <div class="col-lg-5">
                 <fieldset>
-                    <input type="text" name="keyword" class="searchText" placeholder="Digite algo..." autocomplete="on" required>
-                </fieldset>
-              </div>
-              <div class="col-lg-3">
-                <fieldset>
-                    <select name="Category" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
-                        <option selected>todas as categorias</option>
-                        <option type="checkbox" name="option1" value="Music">Musica</option>
-                        <option value="Digital">Digital</option>
-                        <option value="Blockchain">Blockchain</option>
-                        <option value="Virtual">Virtual</option>
-                    </select>
-                </fieldset>
-              </div>
-              <div class="col-lg-3">
-                <fieldset>
-                    <select name="Price" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
-                        <option selected>Disponível</option>
-                        <option value="Ending-Soon">terminando </option>
-                        <option value="Coming-Soon">Em breve</option>
-                        <option value="Closed">Fechado</option>
-                    </select>
+                    <input type="text" name="keyword" class="searchText" placeholder="Procurar..." autocomplete="on" required>
                 </fieldset>
               </div>
               <div class="col-lg-2">                        
                 <fieldset>
-                    <button class="main-button">Procurar</button>
+                    <button type="submit" class="main-button">Procurar</button>
                 </fieldset>
               </div>
             </div>
           </form>
         </div>
-        <div class="col-lg-6">
-          <div class="item">
-            <div class="row">
-              <div class="col-lg-12">
-                <span class="banner">Double Item</span>
-              </div>
-              <div class="col-lg-6 col-sm-6">
-                <span class="author">
-                  <img src="{% static 'images/author.jpg'%}" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                </span>
-                <img src="{% static 'images/discover-01.jpg'%}" alt="" style="border-radius: 20px;">
-                <h4>Mutant Ape Bored</h4>
-              </div>
-              <div class="col-lg-6 col-sm-6">
-                <span class="author">
-                  <img src="{% static 'images/author.jpg'%}" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                </span>
-                <img src="{% static 'images/discover-02.jpg'%}" alt="" style="border-radius: 20px;">
-                <h4>His Other Half</h4>
-              </div>
-              <div class="col-lg-12">
-                <div class="line-dec"></div>
-                <div class="row">
-                  <div class="col-lg-3 col-sm-6">
-                    <span>Current Bid: <br> <strong>8.16 ETH</strong></span>
-                  </div>
-                  <div class="col-lg-3 col-sm-6">
-                    <span>Category: <br> <strong>Digital Art</strong></span>
-                  </div>
-                  <div class="col-lg-3 col-sm-6">
-                    <span>Collection:: <br> <strong>2/2</strong></span>
-                  </div>
-                  <div class="col-lg-3 col-sm-6">
-                    <span>Ends In: <br> <strong>25th Nov</strong></span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div class="main-button">
-                  <a href="details.html">View Details</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
+      {% for item in items %}
+
         <div class="col-lg-3">
           <div class="item">
             <div class="row">
@@ -254,173 +155,31 @@ https://templatemo.com/tm-577-liberty-market
                 <span class="author">
                   <img src="{% static 'images/author.jpg'%}" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
                 </span>
-                <img src="{% static 'images/discover-03.jpg'%}" alt="" style="border-radius: 20px;">
-                <h4>Genesis Meta Boom</h4>
+                <img src="{{ item.image.url }}" alt="" style="border-radius: 20px;">
+                <h4>{{ item.titulo }}</h4>
               </div>
               <div class="col-lg-12">
                 <div class="line-dec"></div>
                 <div class="row">
                   <div class="col-6">
-                    <span>Current Bid: <br> <strong>5.15 ETH</strong></span>
+                    <span>Preço atual: <br> <strong>{{ item.Preco }} ETH</strong></span>
                   </div>
                   <div class="col-6">
-                    <span>Ends In: <br> <strong>26th Nov</strong></span>
+                    <span>Termina em: <br> <strong>{{ item.data_atual|date:"d/m/Y" }}</strong></span>
                   </div>
                 </div>
               </div>
               <div class="col-lg-12">
                 <div class="main-button">
-                  <a href="details.html">View Details</a>
+                  <a href="{% url 'details' item.id %}">Ver detalhes</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-3">
-          <div class="item">
-            <div class="row">
-              <div class="col-lg-12">
-                <span class="author">
-                  <img src="{% static 'images/author.jpg'%}" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                </span>
-                <img src="{% static 'images/discover-04.jpg'%}" alt="" style="border-radius: 20px;">
-                <h4>Another Half Ape</h4>
-              </div>
-              <div class="col-lg-12">
-                <div class="line-dec"></div>
-                <div class="row">
-                  <div class="col-6">
-                    <span>Current Bid: <br> <strong>3.63 ETH</strong></span>
-                  </div>
-                  <div class="col-6">
-                    <span>Ends In: <br> <strong>24th Nov</strong></span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div class="main-button">
-                  <a href="details.html">View Details</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="item">
-            <div class="row">
-              <div class="col-lg-12">
-                <span class="author">
-                  <img src="{% static 'images/author.jpg'%}" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                </span>
-                <img src="{% static 'images/discover-03.jpg'%}" alt="" style="border-radius: 20px;">
-                <h4>Pixel Sand Box</h4>
-              </div>
-              <div class="col-lg-12">
-                <div class="line-dec"></div>
-                <div class="row">
-                  <div class="col-6">
-                    <span>Current Bid: <br> <strong>4.68 ETH</strong></span>
-                  </div>
-                  <div class="col-6">
-                    <span>Ends In: <br> <strong>28th Nov</strong></span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div class="main-button">
-                  <a href="details.html">View Details</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="item">
-            <div class="row">
-              <div class="col-lg-12">
-                <span class="author">
-                  <img src="{% static 'images/author.jpg'%}" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                </span>
-                <img src="{% static 'images/discover-04.jpg'%}" alt="" style="border-radius: 20px;">
-                <h4>Another Half Ape</h4>
-              </div>
-              <div class="col-lg-12">
-                <div class="line-dec"></div>
-                <div class="row">
-                  <div class="col-6">
-                    <span>Current Bid: <br> <strong>2.03 ETH</strong></span>
-                  </div>
-                  <div class="col-6">
-                    <span>Ends In: <br> <strong>25th Nov</strong></span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div class="main-button">
-                  <a href="details.html">View Details</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="item">
-            <div class="row">
-              <div class="col-lg-12">
-                <span class="author">
-                  <img src="{% static 'images/author.jpg'%}" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                </span>
-                <img src="{% static 'images/discover-06.jpg'%}" alt="" style="border-radius: 20px;">
-                <h4>Invisible NFT Land</h4>
-              </div>
-              <div class="col-lg-12">
-                <div class="line-dec"></div>
-                <div class="row">
-                  <div class="col-6">
-                    <span>Current Bid: <br> <strong>2.03 ETH</strong></span>
-                  </div>
-                  <div class="col-6">
-                    <span>Ends In: <br> <strong>25th Nov</strong></span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div class="main-button">
-                  <a href="details.html">View Details</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="item">
-            <div class="row">
-              <div class="col-lg-12">
-                <span class="author">
-                  <img src="{% static 'images/author.jpg'%}" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                </span>
-                <img src="{% static 'images/discover-05.jpg'%}" alt="" style="border-radius: 20px;">
-                <h4>Another Half Ape</h4>
-              </div>
-              <div class="col-lg-12">
-                <div class="line-dec"></div>
-                <div class="row">
-                  <div class="col-6">
-                    <span>Current Bid: <br> <strong>2.64 ETH</strong></span>
-                  </div>
-                  <div class="col-6">
-                    <span>Ends In: <br> <strong>25th Nov</strong></span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div class="main-button">
-                  <a href="details.html">View Details</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
+      {% endfor %}
+
       </div>
     </div>
   </div>

@@ -6,7 +6,7 @@ import datetime
 class items(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    titulo = models.CharField(max_length=30, blank=False)
+    titulo = models.CharField(max_length=19, blank=False)
     descricao = models.CharField(max_length=50, blank=False)
     Preco = models.FloatField(blank=False)
     royalties = models.PositiveIntegerField(blank=False)
