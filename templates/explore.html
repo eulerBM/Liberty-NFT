@@ -134,7 +134,7 @@ https://templatemo.com/tm-577-liberty-market
             <div class="row">
               <div class="col-lg-5">
                 <fieldset>
-                    <input type="text" name="keyword" class="searchText" placeholder="Procurar..." autocomplete="on" required>
+                    <input type="text" name="keyword" class="searchText" placeholder="Procurar..." autocomplete="on" >
                 </fieldset>
               </div>
               <div class="col-lg-2">                        
@@ -145,40 +145,76 @@ https://templatemo.com/tm-577-liberty-market
             </div>
           </form>
         </div>
+      {% if items_filter%}
+        {% for item in items_filter %}
 
+              <div class="col-lg-3">
+                <div class="item">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <span class="author">
+                        <img src="{% static 'images/author.jpg'%}" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                      </span>
+                      <img src="{{ item.image.url }}" alt="" style="border-radius: 20px;">
+                      <h4>{{ item.titulo }}</h4>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="line-dec"></div>
+                      <div class="row">
+                        <div class="col-6">
+                          <span>Preço atual: <br> <strong>{{ item.Preco }} ETH</strong></span>
+                        </div>
+                        <div class="col-6">
+                          <span>Termina em: <br> <strong>{{ item.data_atual|date:"d/m/Y" }}</strong></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="main-button">
+                        <a href="{% url 'details' item.id %}">Ver detalhes</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        {% endfor %}
+
+      {% else %}
+      
       {% for item in items %}
 
-        <div class="col-lg-3">
-          <div class="item">
-            <div class="row">
-              <div class="col-lg-12">
-                <span class="author">
-                  <img src="{% static 'images/author.jpg'%}" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                </span>
-                <img src="{{ item.image.url }}" alt="" style="border-radius: 20px;">
-                <h4>{{ item.titulo }}</h4>
-              </div>
-              <div class="col-lg-12">
-                <div class="line-dec"></div>
-                <div class="row">
-                  <div class="col-6">
-                    <span>Preço atual: <br> <strong>{{ item.Preco }} ETH</strong></span>
-                  </div>
-                  <div class="col-6">
-                    <span>Termina em: <br> <strong>{{ item.data_atual|date:"d/m/Y" }}</strong></span>
+              <div class="col-lg-3">
+                <div class="item">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <span class="author">
+                        <img src="{% static 'images/author.jpg'%}" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                      </span>
+                      <img src="{{ item.image.url }}" alt="" style="border-radius: 20px;">
+                      <h4>{{ item.titulo }}</h4>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="line-dec"></div>
+                      <div class="row">
+                        <div class="col-6">
+                          <span>Preço atual: <br> <strong>{{ item.Preco }} ETH</strong></span>
+                        </div>
+                        <div class="col-6">
+                          <span>Termina em: <br> <strong>{{ item.data_atual|date:"d/m/Y" }}</strong></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="main-button">
+                        <a href="{% url 'details' item.id %}">Ver detalhes</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-12">
-                <div class="main-button">
-                  <a href="{% url 'details' item.id %}">Ver detalhes</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-      {% endfor %}
+        {% endfor %}
+      {% endif %}
 
       </div>
     </div>
