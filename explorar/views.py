@@ -20,7 +20,7 @@ def explore(request):
     
         # se o imput for falso mostre isso
 
-        item_all = items.objects.all()
+        item_all = items.objects.all()[:10]
     
         context = {
             'items': item_all,
