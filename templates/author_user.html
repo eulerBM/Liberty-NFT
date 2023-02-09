@@ -135,12 +135,20 @@ https://templatemo.com/tm-577-liberty-market
             </div>
             <div class="row">
               <div class="col-5">
-                <h5>0 Seguidores</h5>
+                <h5>{{ contagem }} Seguidores</h5>
               </div>
                        
                   <div class="col-7">
                     <div class="main-button">
-                      <a href="#">seguir </a>
+                      
+                      {% if nao_segue %}
+                        <a href="#">Deixar de seguir </a>
+                      
+                      {% else %}
+                        <a href="#">Seguir </a>
+                      {% endif %}
+
+
                     </div>
                   </div>
 

@@ -1,6 +1,8 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import  redirect
+from django.shortcuts import  redirect, get_object_or_404
+from django.contrib.auth.models import User
+from django.db.models import Q
 from criar.models import *
 from .models import *
 from .forms import *
@@ -18,14 +20,14 @@ def author(request):
         url = "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BRL"
         response = requests.get(url).json()
         eth_price = response["BRL"]
+       
 
         for item in items_list:
             item.total = '{:,.2f}'.format(int(item.Preco * eth_price))
             
         context = {
             'item': items_list,
-            'eth': eth_price,
-            
+            'eth': eth_price,        
                       
         }
         
@@ -33,15 +35,27 @@ def author(request):
         return render (request, 'author.html', context)
     
     
-
+@login_required
 def conta_de_outro_user(request, id):
+
     if request.method == 'GET':
         get_user = User.objects.get(id=id)
         filter_user = items.objects.filter(user=id)
+        contagem_segui = Seguir.objects.filter(seguido=id).__len__
+        
+        busca = Q(
+            Q(seguidor=request.user.id) & Q(seguido=id)
+        )
 
+        nao_segue = Seguir.objects.filter(busca)
+        
         context = {
             'user': get_user,
-            'item': filter_user
+            'item': filter_user,
+            'contagem': contagem_segui,
+            'nao_segue': nao_segue,
+            
+            
         }
 
         return render (request, 'author_user.html', context)
@@ -51,22 +65,17 @@ def conta_de_outro_user(request, id):
     
 
 
-
+@login_required
+def seguir(request, user_id):
+    seguido = User.objects.get(pk=user_id)
+    Seguir.objects.get_or_create(seguidor=request.user, seguido=seguido)
+    return redirect('author', user_id=user_id)
 
 @login_required
-def seguir(request, id):
-    seguido = User.objects.get(id=id)
-    seguidor = request.user
-    Seguir.objects.create(seguidor=seguidor, seguido=seguido)
-    return HttpResponse('Você seguiu o usuário')
-
-@login_required
-def deixar_de_seguir(request, id):
-    seguido = User.objects.get(id=id)
-    seguidor = request.user
-    Seguir.objects.filter(seguidor=seguidor, seguido=seguido).delete()
-    return HttpResponse('Você desseguiu o usuário')
-    
+def deixar_de_seguir(request, user_id):
+    seguido = User.objects.get(pk=user_id)
+    Seguir.objects.filter(seguidor=request.user, seguido=seguido).delete()
+    return redirect('author', user_id=user_id)
 
 
 
