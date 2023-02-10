@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/6699/6699366.png" type="image/x-icon">
 
-    <title>Liberty NFT - {{ user.user.first_name}} </title>
+    <title>Liberty NFT - {{ user.first_name}} </title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'bootstrap/css/bootstrap.min.css'%}"  rel="stylesheet">
@@ -114,24 +114,6 @@ https://templatemo.com/tm-577-liberty-market
         <div class="col-lg-6">
           <div class="right-info">
             <div class="row">
-              <div class="col-4">
-                <div class="info-item">
-                  <i class="fa fa-heart"></i>
-                  <h6>0 <em>Likes</em></h6>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="info-item">
-                  <i class="fa fa-hand"></i>
-                  <h6>0 <em>Likes</em></h6>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="info-item">
-                  <i class="fa fa-dollar"></i>
-                  <h6>0 <em>Likes</em></h6>
-                </div>
-              </div>
             </div>
             <div class="row">
               <div class="col-5">
@@ -142,10 +124,13 @@ https://templatemo.com/tm-577-liberty-market
                     <div class="main-button">
                       
                       {% if nao_segue %}
-                        <a href="#">Deixar de seguir </a>
+
+                        <a href="{% url 'deixar_de_seguir' user.id %}"> Deixar de seguir </a>
                       
                       {% else %}
-                        <a href="#">Seguir </a>
+
+                        <a href="{% url 'seguir' user.id %}"> Seguir </a>
+
                       {% endif %}
 
 

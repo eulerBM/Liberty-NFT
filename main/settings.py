@@ -24,7 +24,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-
     #my_apps
     'home',
     'criar',
@@ -32,7 +31,6 @@ INSTALLED_APPS = [
     'detalhes',
     'explorar',
  
-
     #form_custom
     'widget_tweaks',
 

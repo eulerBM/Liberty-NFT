@@ -46,7 +46,6 @@ def conta_de_outro_user(request, id):
         busca = Q(
             Q(seguidor=request.user.id) & Q(seguido=id)
         )
-
         nao_segue = Seguir.objects.filter(busca)
         
         context = {
@@ -61,21 +60,18 @@ def conta_de_outro_user(request, id):
         return render (request, 'author_user.html', context)
 
         
-           
-    
-
 
 @login_required
-def seguir(request, user_id):
-    seguido = User.objects.get(pk=user_id)
-    Seguir.objects.get_or_create(seguidor=request.user, seguido=seguido)
-    return redirect('author', user_id=user_id)
+def seguir(request, id):
+    seguido = User.objects.get(pk=id)
+    seguir = Seguir.objects.create(seguidor=request.user, seguido=seguido).save()
+    return redirect('outro_user', id)
 
 @login_required
-def deixar_de_seguir(request, user_id):
-    seguido = User.objects.get(pk=user_id)
+def deixar_de_seguir(request, id):
+    seguido = User.objects.get(pk=id)
     Seguir.objects.filter(seguidor=request.user, seguido=seguido).delete()
-    return redirect('author', user_id=user_id)
+    return redirect('outro_user', id)
 
 
 
