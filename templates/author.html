@@ -114,33 +114,15 @@ https://templatemo.com/tm-577-liberty-market
         <div class="col-lg-6">
           <div class="right-info">
             <div class="row">
-              <div class="col-4">
-                <div class="info-item">
-                  <i class="fa fa-heart"></i>
-                  <h6>0 <em>Likes</em></h6>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="info-item">
-                  <i class="fa fa-hand"></i>
-                  <h6>0 <em>Likes</em></h6>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="info-item">
-                  <i class="fa fa-dollar"></i>
-                  <h6>0 <em>Likes</em></h6>
-                </div>
-              </div>
             </div>
             <div class="row">
               <div class="col-5">
-                <h5>{{ contagem }} Seguidores</h5>
+                <h5>{{ user_seg_conta }} Seguidores</h5>
               </div>
                        
                   <div class="col-7">
                     <div class="main-button">
-                      <a href="#">seguir nao sou é essa pagina </a>
+                      <a>Óla, {{ request.user.first_name }} :D</a>
                     </div>
                   </div> 
 

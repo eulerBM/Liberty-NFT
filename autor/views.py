@@ -20,6 +20,7 @@ def author(request):
         url = "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BRL"
         response = requests.get(url).json()
         eth_price = response["BRL"]
+        user_segui_contagem = Seguir.objects.filter(seguido=request.user).__len__
        
 
         for item in items_list:
@@ -27,7 +28,8 @@ def author(request):
             
         context = {
             'item': items_list,
-            'eth': eth_price,        
+            'eth': eth_price,
+            'user_seg_conta':user_segui_contagem,        
                       
         }
         
@@ -47,7 +49,7 @@ def conta_de_outro_user(request, id):
             Q(seguidor=request.user.id) & Q(seguido=id)
         )
         nao_segue = Seguir.objects.filter(busca)
-        
+              
         context = {
             'user': get_user,
             'item': filter_user,
@@ -64,7 +66,11 @@ def conta_de_outro_user(request, id):
 @login_required
 def seguir(request, id):
     seguido = User.objects.get(pk=id)
-    seguir = Seguir.objects.create(seguidor=request.user, seguido=seguido).save()
+    if request.user == seguido:
+        return redirect('outro_user', id)
+    
+    save = Seguir.objects.create(seguidor=request.user, seguido=seguido) 
+    save.save()
     return redirect('outro_user', id)
 
 @login_required
