@@ -1,8 +1,12 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/6699/6699366.png" type="image/x-icon">
+    <link href="{% static 'bootstrap/css/bootstrap.min.css'%}"  rel="stylesheet">
+    
     <title>{% block head_title %}{% endblock %}</title>
     {% block extra_head %}
     {% endblock %}
@@ -22,14 +26,11 @@
     {% endif %}
 
     <div>
-      <strong>Menu:</strong>
-      <ul>
+      
         {% if user.is_authenticated %}
         <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
         <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
-        {% else %}
-        <li><a href="{% url 'account_login' %}">Sign In</a></li>
-        <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+        
         {% endif %}
       </ul>
     </div>

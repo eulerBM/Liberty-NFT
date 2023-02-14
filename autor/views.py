@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import  redirect, get_object_or_404
+from django.shortcuts import  redirect
 from django.contrib.auth.models import User
 from django.db.models import Q
 from criar.models import *
