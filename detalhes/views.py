@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from criar.models import *
+from autor.models import *
 from django.contrib.auth.decorators import login_required
 import requests
 
@@ -12,14 +13,22 @@ def details(request, id):
         response = requests.get(url).json()
         eth_price = response["BRL"]
         resul = '{:,.2f}'.format(int(item.Preco * eth_price))
-        item_all = items.objects.all()[:6]  
+        item_all = items.objects.all()[:6] 
+        try:
+            saldo = Saldo.objects.get(user=request.user).saldo
+
+        except Saldo.DoesNotExist:
+            saldo = '0'
+
+        
 
         
 
         context = {
             'item': item,
             'eth': resul,
-            'item_2': item_all
+            'item_2': item_all,
+            'saldo':saldo
             
 
         }

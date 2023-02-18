@@ -4,6 +4,7 @@ from criar.forms import forms_user
 from django.contrib import messages
 from django.contrib.messages import constants
 from criar.models import *
+from autor.models import *
 from datetime import date
 import requests
 
@@ -14,7 +15,12 @@ def criar (request):
     if request.method == 'GET':
         url = "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BRL"
         response = requests.get(url).json()
-        return render(request, 'create.html', {'form': forms_user(), 'data': date.today(), 'eth': response["BRL"]})
+        try:
+            saldo = Saldo.objects.get(user=request.user).saldo
+
+        except Saldo.DoesNotExist:
+            saldo = '0'
+        return render(request, 'create.html', {'form': forms_user(), 'data': date.today(), 'eth': response["BRL"], 'saldo':saldo})
 
     else:
         form = forms_user(request.POST, request.FILES)

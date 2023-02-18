@@ -21,6 +21,11 @@ def author(request):
         response = requests.get(url).json()
         eth_price = response["BRL"]
         user_segui_contagem = Seguir.objects.filter(seguido=request.user).__len__
+        try:
+            saldo = Saldo.objects.get(user=request.user).saldo
+
+        except Saldo.DoesNotExist:
+            saldo = '0'
        
 
         for item in items_list:
@@ -29,7 +34,8 @@ def author(request):
         context = {
             'item': items_list,
             'eth': eth_price,
-            'user_seg_conta':user_segui_contagem,        
+            'user_seg_conta':user_segui_contagem, 
+            'saldo':saldo       
                       
         }
         
