@@ -41,7 +41,6 @@
  <h2>JavaScripts 🟨</h2><br>
  <a href="https://www.javascript.com/">Documentação JavaScripts</a><br><br>
  
- <h2>Jquery 🌬️</h2><br>
- <a href="https://jquery.com/">Documentação Jquery</a>
+
 
 
