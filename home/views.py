@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
 from criar.models import *
 from autor.models import *
 
@@ -9,7 +8,7 @@ def home(request):
         bd_item = items.objects.all()[:6]
 
         try:
-            saldo = Saldo.objects.get(user=request.user).saldo
+            saldo = Saldo.objects.get(user=request.user.id).saldo
 
         except Saldo.DoesNotExist:
             saldo = '0'
@@ -17,7 +16,7 @@ def home(request):
         context = {
             'item':bd_all,
             'item_all':bd_item,
-            'saldo': saldo
+            'saldo': saldo,
         }
         return render (request, 'index.html', context)
 

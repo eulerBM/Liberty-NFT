@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from criar.models import *
 from autor.models import *
 from django.contrib.auth.decorators import login_required
@@ -19,10 +19,6 @@ def details(request, id):
 
         except Saldo.DoesNotExist:
             saldo = '0'
-
-        
-
-        
 
         context = {
             'item': item,
