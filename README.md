@@ -23,7 +23,6 @@
 <h3>Instale as dependências.</h3><br>
     <h4>pip install -r requirements.txt</h4><br>
     
-    
 <h3>Rode as migrações.</h3>
     <h4>python manage.py makemigrations</h4><br>
     <h4>python manage.py migrate</h4><br>
