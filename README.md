@@ -2,7 +2,7 @@
 
 <h2> Como rodar esse projeto ? </h2><br>
 
-<h2>Clone esse repositório.</h2><br>
+<h2>Clone esse re positório.</h2><br>
 
 
 <h3 HTTPS: https://github.com/eulerBM/Liberty-NFT.git</h3><br>
