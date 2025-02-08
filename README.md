@@ -9,6 +9,7 @@
 <h3> SSH: git@github.com:eulerBM/Liberty-NFT.git</h3><br><br><br>
 
 <h3>Crie um virtualenv com Python</h3><br>
+
   
     Windows 🗔
     python -m venv venv
