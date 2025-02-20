@@ -20,6 +20,7 @@
     python3 -m venv venv 
     Agora ative com o seguinte comando
     source env/bin/activate
+
     
 <h3>Instale as dependências.</h3><br>
     <h4>pip install -r requirements.txt</h4><br>
