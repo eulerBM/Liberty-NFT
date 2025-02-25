@@ -10,6 +10,10 @@
 
 <h3>Crie um virtualenv com Python</h3><br>
 
+
+
+
+
     Windows 🗔
     python -m venv venv
     Agora ative com o seguinte comand
